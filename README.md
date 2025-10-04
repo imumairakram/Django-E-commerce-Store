@@ -49,7 +49,7 @@ Follow these steps to set up and run the project locally:
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/yourusername/ecommerce-django.git
+git clone https://github.com/imumairakram/django-e-commerce-store.git
 cd ecommerce-django
 
 # 2️⃣ Create a virtual environment
