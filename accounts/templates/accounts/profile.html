@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 bg-light border-end vh-100 p-3">
+      <h4 class="text-primary mb-4">My Account</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link active">👤 Profile</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link">🛒 My Orders</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link">❤️ Wishlist</a>
+        </li>
+        <li class="nav-item mb-2">
+          <a href="#" class="nav-link">⚙️ Settings</a>
+        </li>
+        <li class="nav-item mt-4">
+          <!-- <a href="{% url 'logout' %}" class="btn btn-danger w-100">Logout</a> -->
+            <a href="{% url 'logout' %}">Logout</a>
+
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9 col-lg-10 p-4">
+      <h2 class="mb-4">Welcome, {{ user.username }} 👋</h2>
+
+      <div class="row">
+        <!-- User Info Card -->
+        <div class="col-md-6 mb-3">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title">Account Information</h5>
+              <p><strong>Email:</strong> {{ user.email }}</p>
+              <p><strong>Username:</strong> {{ user.username }}</p>
+              <p><strong>Member since:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats Card -->
+        <div class="col-md-6 mb-3">
+          <div class="card shadow-sm border-0">
+            <div class="card-body text-center">
+              <h5 class="card-title">Quick Stats</h5>
+              <p>🛒 Orders Placed: <strong>5</strong></p>
+              <p>❤️ Wishlist Items: <strong>3</strong></p>
+              <p>⭐ Loyalty Points: <strong>120</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Orders -->
+      <div class="card shadow-sm border-0 mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Recent Orders</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Order ID</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>#ORD123</td>
+                <td><span class="badge bg-success">Delivered</span></td>
+                <td>Sep 20, 2025</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>#ORD124</td>
+                <td><span class="badge bg-warning">Pending</span></td>
+                <td>Sep 25, 2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

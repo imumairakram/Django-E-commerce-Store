@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Order Success{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 30px;">
+    <h2>✅ Order Placed Successfully!</h2>
+    <p>Thank you {{ request.user.username }} for your purchase.</p>
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Total Price:</strong> ${{ order.total_price }}</p>
+
+    <h3>Order Items:</h3>
+    <ul>
+        {% for item in order.orderitem_set.all %}
+            <li>{{ item.product.name }} (x{{ item.quantity }}) - ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{% url 'product_list' %}">⬅ Continue Shopping</a>
+</div>
+{% endblock %}

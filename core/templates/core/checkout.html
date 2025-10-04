@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h2>Checkout</h2>
+<p>Review your cart before placing the order:</p>
+
+<ul>
+    {% for product_id, quantity in request.session.cart.items %}
+        <li>
+            {{ product_id }} - Quantity: {{ quantity }}
+        </li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Place Order</button>
+</form>
+{% endblock %}

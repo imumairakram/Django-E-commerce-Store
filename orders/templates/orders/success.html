@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Success</title>
+</head>
+<body>
+    <h1>🎉 Thank You for Your Order!</h1>
+    <p>Your order <strong>#{{ order.id }}</strong> has been placed successfully.</p>
+
+    <h2>Order Summary:</h2>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.product.name }} (x{{ item.quantity }}) - ${{ item.price }} each</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Total Price:</strong> ${{ order.total_price }}</p>
+
+    <p><a href="/">Continue Shopping</a></p>
+</body>
+</html>
